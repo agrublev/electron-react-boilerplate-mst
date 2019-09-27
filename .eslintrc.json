@@ -22,7 +22,6 @@
     "import/no-extraneous-dependencies": ["off"],
     "import/no-named-as-default": ["off"],
     "react/jsx-indent-props": ["off"],
-    "flowtype/require-return-type": ["off"],
     "camelcase": ["off"],
     "react/no-array-index-key": ["warn"],
     "react/jsx-one-expression-per-line": ["off"],

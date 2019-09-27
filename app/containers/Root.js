@@ -1,5 +1,5 @@
-import { hot } from 'react-hot-loader/root';
-// import { hot } from 'react-hot-loader';
+// import { hot } from 'react-hot-loader/root';
+import { hot } from 'react-hot-loader';
 import React from 'react';
 import { Provider } from 'mobx-react';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,5 +14,5 @@ const Root = ({ store, history }) => (
   </Provider>
 );
 
-export default hot(Root);
-// export default hot(module)(Root);
+// export default hot(Root);
+export default hot(module)(Root);
