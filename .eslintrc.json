@@ -27,6 +27,7 @@
     "react/no-array-index-key": ["warn"],
     "react/jsx-one-expression-per-line": ["off"],
     "react/prop-types": "off",
+    "react/button-has-type": "off",
     "react/jsx-tag-spacing": [
       "warn",
       {

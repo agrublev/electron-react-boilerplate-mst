@@ -1,17 +1,6 @@
-import { types as t, flow, getRoot } from 'mobx-state-tree';
+import { types as t } from 'mobx-state-tree';
 
-const {
-  model,
-  optional,
-  map,
-  union,
-  reference,
-  string,
-  frozen,
-  boolean,
-  number,
-  array
-} = t;
+const { model } = t;
 
 const Model = {
   counter: 0

@@ -1,24 +1,19 @@
 import { types as t } from 'mobx-state-tree';
-const { model, optional } = t;
-
+import { createHashHistory } from 'history';
+// eslint-disable-next-line import/extensions
 import CounterStore from './CounterStore.js';
 
-const Stores = model('Stores', {
+export const history = createHashHistory();
+
+const { model, optional } = t;
+
+export const RootStore = model('RootStore', {
   isTest: false,
-  applicationStore: optional(ApplicationStore, {}),
-  componentStore: optional(ComponentStore, {}),
-  sessionStore: optional(SessionStore, {}),
-  groupStore: optional(GroupStore, {}),
-  projectStore: optional(ProjectStore, {}),
-  userStore: optional(UserStore, {})
+  counterStore: optional(CounterStore, {})
 }).actions(self => {
   return {
     afterCreate() {
-      if (!self.isTest) {
-        self.sessionStore.fetchSession();
-      }
+      console.info('STORE CREATED');
     }
   };
 });
-
-export default Stores;

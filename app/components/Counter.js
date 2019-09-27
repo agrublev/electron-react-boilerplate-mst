@@ -1,28 +1,12 @@
-//      
 import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import styles from './Counter.css';
 import routes from '../constants/routes';
+import styles from './Counter.css';
 
-              
-                        
-                             
-                             
-                        
-                 
-  
-
-export default class Counter extends Component        {
-               
-
+class Counter extends Component {
   render() {
-    const {
-      increment,
-      incrementIfOdd,
-      incrementAsync,
-      decrement,
-      counter
-    } = this.props;
+    const { increment, decrement, counter } = this.props.store.counterStore;
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -30,44 +14,12 @@ export default class Counter extends Component        {
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
         </div>
-        <div className={`counter ${styles.counter}`} data-tid="counter">
-          {counter}
-        </div>
-        <div className={styles.btnGroup}>
-          <button
-            className={styles.btn}
-            onClick={increment}
-            data-tclass="btn"
-            type="button"
-          >
-            <i className="fa fa-plus" />
-          </button>
-          <button
-            className={styles.btn}
-            onClick={decrement}
-            data-tclass="btn"
-            type="button"
-          >
-            <i className="fa fa-minus" />
-          </button>
-          <button
-            className={styles.btn}
-            onClick={incrementIfOdd}
-            data-tclass="btn"
-            type="button"
-          >
-            odd
-          </button>
-          <button
-            className={styles.btn}
-            onClick={() => incrementAsync()}
-            data-tclass="btn"
-            type="button"
-          >
-            async
-          </button>
-        </div>
+        <div>Counter: {counter}</div>
+        <button onClick={increment}>+</button>
+        <button onClick={decrement}>-</button>
       </div>
     );
   }
 }
+
+export default inject('store')(observer(Counter));
